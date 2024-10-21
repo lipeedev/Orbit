@@ -1,4 +1,4 @@
-# Orbit Frontend
+# Orbit Frontend [Working in Progress]
 
 This is the frontend part of the Orbit project, a web application designed to efficiently organize and manage events. The frontend is built using Next.js 14, TailwindCSS, and TypeScript.
 
