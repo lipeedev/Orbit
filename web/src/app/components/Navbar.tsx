@@ -36,11 +36,13 @@ export function Navbar() {
     <div className={`md:relative fixed w-full transition-transform duration-300 ${showNavbar ? 'translate-y-0' : '-translate-y-40'}`}>
       <div className="md:flex md:items-start md:justify-between p-2 bg-white">
         <div className={`${isOpen ? 'border-b border-indigo-100' : ''} z-30 absolute inset-x-0 md:relative flex justify-between items-center bg-white md:mt-2`}>
-          <Image
-            src={Logo}
-            alt='logo'
-            className='h-12 w-auto'
-          />
+          <a href='/dashboard'>
+            <Image
+              src={Logo}
+              alt='logo'
+              className='h-12 w-auto'
+            />
+          </a>
 
           <span className="md:hidden mx-6 cursor-pointer text-3xl text-gray-600 font-semibold" onClick={() => setIsOpen(!isOpen)}>
             {isOpen ? <X /> : <AlignRight />}
@@ -56,13 +58,14 @@ export function Navbar() {
           ))}
 
           <button className="w-full md:w-auto mt-8 md:mt-0 bg-indigo-600 text-white px-4 py-2 rounded-md">
-            Create event
+            Get Premium
           </button>
           <button onClick={async () => await logout()} className="w-full md:w-auto mt-8 md:mt-0 bg-white text-indigo-600 border-2 border-indigo-600 px-4 py-2 rounded-md">
             Sign out
           </button>
         </ul>
       </div>
+
     </div>
   )
 }

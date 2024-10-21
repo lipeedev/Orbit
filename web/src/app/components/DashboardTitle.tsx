@@ -1,4 +1,16 @@
+'use client'
+
+import { useState } from "react"
+import { Modal } from "./Modal"
+import { ModalSelected } from "@/app/types/Modal"
+import { Calendar } from "lucide-react"
+import { EventCreationForm } from "./EventCreationForm"
+
 export function DashboardTitle() {
+
+  const [modalSelected, setModalSelected] = useState<ModalSelected>({ isOpen: false, type: 'create' })
+  const [isDateSelected, setIsDateSelected] = useState(false)
+
   return (
     <div className="flex md:ml-7 flex-col gap-6 items-center md:items-start">
       <div className="mt-20 flex flex-col items-center justify-center md:items-start gap-0 md:gap-2">
@@ -13,8 +25,8 @@ export function DashboardTitle() {
             <a href="/dashboard#events" className="text-white">Explore events</a>
           </button>
 
-          <button className="py-2 px-5 bg-gray-200 rounded-full">
-            <span className="text-gray-600">Get premium</span>
+          <button onClick={() => setModalSelected({ isOpen: true, type: 'create' })} className="py-2 px-5 bg-gray-200 rounded-full">
+            <span className="text-gray-600">Create event</span>
           </button>
         </div>
 
@@ -23,6 +35,17 @@ export function DashboardTitle() {
         </button>
       </div>
 
-    </div>
+      <Modal
+        isOpen={modalSelected.isOpen}
+        onClose={() => setModalSelected({ type: 'create', isOpen: false })}>
+
+        <EventCreationForm
+          onCancel={() => setModalSelected({ type: 'create', isOpen: false })}
+          onDateTimeChange={() => setIsDateSelected(true)}
+          isModalOpen={modalSelected.isOpen}
+          isDateSelected={isDateSelected}
+        />
+      </Modal>
+    </div >
   )
 }

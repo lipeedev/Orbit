@@ -22,7 +22,7 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body>
-        {!!isLogged && <Navbar />}
+        {!(!!isLogged) && <Navbar />}
         {children}
       </body>
     </html>

@@ -1,10 +1,11 @@
 import { SearchIcon } from "lucide-react";
-import { Carousel } from "../components/Carousel";
-import { DashboardTitle } from "../components/DashboardTitle";
-import { TopHostDetails } from "../components/TopHostDetails";
-import { EventCard } from "../components/EventCard";
+import { Carousel } from "@/app/components/Carousel";
+import { DashboardTitle } from "@/app/components/DashboardTitle";
+import { TopHostDetails } from "@/app/components/TopHostDetails";
+import { EventCard } from "@/app/components/EventCard";
 import { cookies } from "next/headers";
 import { EventFomRequest } from '@/app/types/Event'
+import { Modal } from "@/app/components/Modal";
 
 export default async function Dashboard() {
   const hosts = [
@@ -132,7 +133,6 @@ export default async function Dashboard() {
           ))
         }
       </div>
-
     </div >
   )
 }
