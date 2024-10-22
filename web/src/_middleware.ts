@@ -13,7 +13,7 @@ export async function middleware(req: NextRequest) {
     try {
       await jwtVerify(token ?? '', secret);
       return NextResponse.redirect(new URL('/dashboard', req.url));
-    } catch (err) {
+    } catch {
       return NextResponse.next();
     }
   }
@@ -25,7 +25,7 @@ export async function middleware(req: NextRequest) {
   try {
     await jwtVerify(token, secret);
     return NextResponse.next();
-  } catch (err) {
+  } catch {
     return NextResponse.redirect(new URL('/auth/signin', req.url));
   }
 }

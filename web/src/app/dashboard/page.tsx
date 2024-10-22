@@ -3,9 +3,7 @@ import { Carousel } from "@/app/components/Carousel";
 import { DashboardTitle } from "@/app/components/DashboardTitle";
 import { TopHostDetails } from "@/app/components/TopHostDetails";
 import { EventCard } from "@/app/components/EventCard";
-import { cookies } from "next/headers";
 import { EventFomRequest } from '@/app/types/Event'
-import { Modal } from "@/app/components/Modal";
 
 export default async function Dashboard() {
   const hosts = [
@@ -17,8 +15,6 @@ export default async function Dashboard() {
     { name: "Patrick F", stars: 109, username: "p_slayer" },
   ]
 
-  let events: EventFomRequest[] | undefined
-
   /*const token = cookies().get('orbit.token')?.value
    const eventsResponse = await fetch(process.env.API_URL + '/events', {
      headers: { 'Authorization': `Bearer ${token}` }
@@ -27,8 +23,8 @@ export default async function Dashboard() {
    if (eventsResponse.ok) {
      events = await eventsResponse.json() as EventFomRequest[]
    }*/
-
-  events = [
+  
+const events: EventFomRequest[] | undefined = [
     {
       name: 'Wedding Party',
       description: 'This is a wedding party',
